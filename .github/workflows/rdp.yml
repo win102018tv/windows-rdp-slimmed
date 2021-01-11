@@ -26,6 +26,8 @@ jobs:
     - name: Debloat step 1
       run: C:\Users\runneradmin\Windows10Debloater\Windows10SysPrepDebloater.ps1 -Debloat 
       shell: powershell
+#    - name: Enable Dark Mode 
+#      run: New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
     - name: Create Tunnel
       run: .\ngrok\ngrok.exe tcp 3389
       
