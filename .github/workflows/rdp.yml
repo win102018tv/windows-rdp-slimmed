@@ -21,13 +21,10 @@ jobs:
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Area69Lab" -Force)
-    - run: git clone https://github.com/sarthakroy2002/Windows10Debloater.git C:\Users\runneradmin\Windows10Debloater
-    - run: cd C:\Users\runneradmin\Windows10Debloater
     - run: net user RDPUser /add
     - run: net user RDPUser Passw0rd!
     - run: net localgroup Administrators /add RDPUser
     - name: Debloat step 1
-      run: C:\Users\runneradmin\Windows10Debloater\Windows10SysPrepDebloater.ps1 -Debloat 
       shell: powershell
 #    - name: Enable Dark Mode 
 #      run: New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
